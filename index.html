@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>Train Activity</title>
+
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	 
+
+</head>
+<body>
+<!---panel 1 train title-------------------------------------------->
+
+<div class="container-jumbo">
+        <div class="row tron">
+            <div class="jumbotron">
+                <h1> Train Schedules </h1>
+                <p>A Comprehensive Directory of Employee Billable Hours</p>
+            </div>
+        </div>
+
+
+<!---panel 2  curent train Schedule-------------------------------------------->
+
+<div class="row table">
+            <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading" id="head">Current Train Schedule</div>
+
+                <!-- Table -->
+                <table class="table new-employee">
+                    <tr>
+                        <th>Train Name</th>
+                        <th>Destination</th>
+                        <th>Frequency(min)</th>
+                        <th>Next Arrival</th>
+                        <th>Minutes Avaw</th>
+                     </tr>
+                </table>
+            </div>
+        </div>
+
+<!---panel 3 form for adding trains-------------------------------------------->
+
+<div class="row input">
+            <div class="panel panel-default">
+
+                <div class="panel-heading head" id="head">Add Train</div>
+                <form id="search-form" name="search-form">
+                    <label for="train-name-input">Train Name</label><br>
+                    <input id="box-input" type="text"><br>
+                    <label for="destination-input">Destination</label><br>
+                    <input id="box-input" type="text"><br>
+                    <label for="time-first-input">First Train Time(HH:mm-military time)</label><br>
+                    <input id="box-input" type="text"><br>
+                    <label for="frequency-input">Frequency(min)</label><br>
+                    <input id="box-input" type="text"><br>
+                    <br>
+                    <input id="add-time" type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
+
+ 
+
+</body>
+</html>
