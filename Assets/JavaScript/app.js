@@ -1,7 +1,7 @@
 
   //---------------------------------------------------------------
 
-  // Initialize Firebase
+  //Initialize Firebase
   var config = {
     apiKey: "AIzaSyD9X8LMFj8FOlBsW_BE9gqwitIsb7LNH6Y",
     authDomain: "train-times-a3cf0.firebaseapp.com",
@@ -13,11 +13,12 @@
 
   var database = firebase.database();
 
-//inital values
-var trainName = "";
-var destination = "";
-var firstTime = 0;
-var frequency = "";
+// //inital values
+// var trainName = "";
+// var destination = "";
+// var firstTime = 0;
+// var frequency = "";
+
 
 
 
@@ -29,7 +30,17 @@ var frequency = "";
   	var trnDestination = $("#destInput").val().trim();
   	var trnFirstTime = moment($("#ftInput").val().trim(), "HH:mm-military time").format("X");
   	var trnFrequency = $("#freqInput").val().trim();
+
+  	// local "temp" object for holding train data
   	
+  	var newTrn = {
+  		name: trnName,
+  		destination: trnDestination,
+  		firstTime: trnFirstTime,
+  		frequency: trnFrequency
+
+  	}
+
 
 
 
@@ -42,13 +53,36 @@ var frequency = "";
   	// console.log(currentTime);
   	// console.log(traveledTime);
   	
-  	database.ref().push({
-  		name:name,
-  		destination: destination,
-  		firstTime: firstTime,
-  		frequency: frequency,
-  		dataAdded: firebase.database.ServerValue.TIMESTAMP
-  	})
+  	database.push(newTrn);
+
+  	// 		name: trnName,
+  	// 	destination: trnDestination,
+  	// 	firstTime: trnFirstTime,
+  	// 	frequency: trnFrequency
+
+
+  	// });
+
+
+
+  	// dataAdded: firebase.database.ServerValue.TIMESTAMP
+
+  	console.log(newTrn.name);
+  	console.log(newTrn.destination);
+  	console.log(newTrn.firstTime);
+  	console.log(newTrn.frequency)
+	
+
+  
+
+  
+
+  		// name:name,
+  		// destination: destination,
+  		// firstTime: firstTime,
+  		// frequency: frequency,
+  		// dataAdded: firebase.database.ServerValue.TIMESTAMP
+  
 
 
   	//temp for holding train times
@@ -71,20 +105,52 @@ var frequency = "";
 
   	//alert test 
   	
+	alert("Logged train info");
 
+	//clear all of the text-boxes
+	$("#trainInput").val("");
+	$("#destInput").val("");
+	$("#ftInput").val("");
+	$("#freqInput").val("");
 
   	return false;
 
-  })
+  });
 
-  database.ref().on("child_added", function(childSnapshot){
+  database.ref().on("child_added", function(childSnapshot, prevChildKey){
+  	
+  	console.log(childSnapshot.val());
+ 
 
-  	$(".new-employee").append("<tr>+<td>"+childSnapshot.val().name+"<td>"+
-  		childSnapshot.val().destination+"<td>"+childSnapshot.val().firstTime+"<td>"+"<td>"
-  		+childSnapshot.val().frequency)
-  })
+ 
 
 
 
+
+  	//storing everthing enetered 
+  	var trnName = childSnapshot.val().name; 
+  	var trnDestination = childSnapshot.val().destination;
+  	var trnFirstTime = childSnapshot.val().firstTime;
+  	var trnFrequency = childSnapshot.val().frequency;
+
+  	//logging input info to the panel 2 train schd
+  	console.log(trnName);
+  	console.log(trnDestination);
+  	console.log(trnFirstTime);
+  	console.log(trnFrequency);
+
+  	// var trnFrequency = 5;
+  	// var firstTime = "03:30";
+
+
+//add to the train schd table
+   $("#train-schedule> tbody").append("<tr><td>" 
+  	+ trnName + "</td><td>" + trnDestination + "</td><td>" 
+  	+ trnFirstTime+ "</td><td>" + trnFrequency + "</td></tr>");
+
+
+
+
+});
 
 
