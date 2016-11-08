@@ -53,7 +53,7 @@
   	// console.log(currentTime);
   	// console.log(traveledTime);
   	
-  	database.push(newTrn);
+  	database.ref().push(newTrn);
 
   	// 		name: trnName,
   	// 	destination: trnDestination,
@@ -116,18 +116,13 @@
   	return false;
 
   });
-
-  database.ref().on("child_added", function(childSnapshot, prevChildKey){
+// area for html to be updated with user inputs
+  database.ref().push().on("child_added", function(childSnapshot, prevChildKey){
   	
   	console.log(childSnapshot.val());
  
 
- 
-
-
-
-
-  	//storing everthing enetered 
+ 	//storing everthing enetered 
   	var trnName = childSnapshot.val().name; 
   	var trnDestination = childSnapshot.val().destination;
   	var trnFirstTime = childSnapshot.val().firstTime;
