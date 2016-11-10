@@ -26,13 +26,13 @@
     // here i will add in the moment js for the firstTime entered  
   	var trnFirstTime = $("#ftInput").val().trim();
     var trnFrequency = $("#freqInput").val().trim();
-      // trnFirstTimeCoverted = moment(trFirstTime, "hh:mm").subtract(1,"year");
-      // currentTime=moment();
-      // diffTime = moment().diff(moment(trnFirstTimeCoverted), "minutes")
-      // tRemainder = diffTime % frequency;
-      // trnMinutesTill= frequency - tRemainder;
-      // trnNextTrain = moment().add(minutesTill, "minutes");
-      // trnNextTrainFormated = moment(nextTrain).format("hh:mm");
+      trnFirstTimeConverted = moment(trnFirstTime, "hh:mm").subtract(1,"year");
+      currentTime=moment();
+      diffTime = moment().diff(moment(trnFirstTimeConverted), "minutes")
+      tRemainder = diffTime % frequency;
+      trnMinutesTill= frequency - tRemainder;
+      trnNextTrain = moment().add(minutesTill, "minutes");
+      trnNextTrainFormated = moment(nextTrain).format("hh:mm");
 
 
 
@@ -43,9 +43,9 @@
   		name: trnName,
   		destination: trnDestination,
   		firstTime: trnFirstTime,
-  		frequency: trnFrequency
-      // trnNextTrainFormated: trnNextTrainFormated,
-      // minutesTill: trnMinutesTill
+  		frequency: trnFrequency,
+      trnNextTrainFormated: trnNextTrainFormated,
+      minutesTill: trnMinutesTill
       
 
   	}
@@ -93,8 +93,8 @@
   	var trnDestination = childSnapshot.val().destination;
   	var trnFirstTime = childSnapshot.val().firstTime;
   	var trnFrequency = childSnapshot.val().frequency;
-    // var trnNextTrainFormated = childSnapshot.val().trnNextTrainFormated;
-    // var trnMinutesTill = childSnapshot.val().minutesTill;
+    var trnNextTrainFormated = childSnapshot.val().trnNextTrainFormated;
+    var trnMinutesTill = childSnapshot.val().minutesTill;
 
   	//logging input info to the panel 2 train schd
   	console.log(trnName);
@@ -107,13 +107,12 @@
 
 
 //add to the train schd table
-   $(".train-schedule").append("<tr>+<td>"+trnName+"</td><td>"+trnDestination+"</td><td>"+trnFirstTime+"</td><td>"+trnFrequency+"</td></tr>");
+   $(".train-schedule").append("<tr>+<td>"+trnName+"</td><td>"+trnDestination+"</td><td>"+trnFirstTime+"</td><td>"+trnFrequency+ "</td><td>"+trnNextTrainFormated+ "</td><td>" + minutesTill+  "</td></tr>");
 
  }, function(errorObject){
 
 });
 
-// $(document).ready(function() {
-//   startTime();
+// $(document).ready(function() {startTime();
 // });
 
