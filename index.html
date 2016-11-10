@@ -3,21 +3,36 @@
 <head>
 <meta charset="utf-8">
 	<title>Train Activity</title>
-
-	<link rel="stylesheet" type="text/css" href="Assets/css/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    
+    <meta name="vieport" content="width=device-width, initial-scale=1">
 	
+    <link rel="stylesheet" type="text/css" href="Assets/css/style.css">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+     
+     <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+
+
+ 
 
 </head>
 <body>
 <!---panel 1 train title-------------------------------------------->
 
+
 <div class="container">
 
-                   <div class="jumbotron">
-                <h1 class="test1"> Train Schedules </h1>
+                   <div class="headTag">
+                <h1 class="text1"> Train Schedules </h1>
                 <h3 class="text2">Time Table</h3>
+               
             </div>
         
  
@@ -26,15 +41,16 @@
 <!---panel 2  curent train Schedule-------------------------------------------->
 <div class="row">
 	<div class="col-lg-12">
-            <div class="panel panel-primary">
+            <div class="ppp">
                 <!-- Default panel contents -->
-               <div class="panel-heading">
+               <div class="ph">
 
-              <h3 class="panel-title">Current Train Schedule</h3>
+              <h3 class="pt">Current Train Schedule</h3>
+              <hr>
               </div>
 
                 <!-- Table -->
-                <div class="panel-body">
+                <div class="pbody">
                 <table class="table train-schedule"  id="trainInfo">
                 <thead>
                     <tr>
@@ -53,14 +69,14 @@
 	</div>
 
 <!---panel 3 form for adding trains-------------------------------------------->
-<div class="panel panel-primary">
-<div class="panel-heading">
-            <h3 class="panel-title">Add Train</h3>
+<div class="ppp">
+<div class="ph">
+            <h3 class="ptitle">Add Train</h3>
             </div>
 
 
 
-                <div class="panel-body">
+                <div class="pbody">
                 
              <form>
              	<div class="form-schd">
@@ -95,15 +111,9 @@
 </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript">
-    </script>
 
-    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>	
-
-<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
 <script src="Assets/JavaScript/app.js"></script>
- 
 
 </body>
 </html>
